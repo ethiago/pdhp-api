@@ -12,6 +12,8 @@ var db_tools = require('./tools/db_tools');
 
 var app = express();
 
+var port = process.env.PORT || 8000;
+
 
 db_tools.DBConnectMongoose()
     .then(() => {
@@ -24,9 +26,9 @@ db_tools.DBConnectMongoose()
 
         routes.assignRoutes(app);
 
-        app.listen(8080);
+        app.listen(port);
 
-        console.log('Server listening on port 8080');
+        console.log('Server listening on port '+ port);
     })
     .catch(err => {
         console.log('Error: ' + err)
