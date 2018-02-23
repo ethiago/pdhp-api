@@ -1,7 +1,7 @@
 /**
  * Created by siroramirez on 23/05/17.
  */
-var usersDomain = require('../domain/users');
+var usersDomain = require('../../domain/users');
 
 exports.createUser = function (req, res, next) {
     var userData = req.body;

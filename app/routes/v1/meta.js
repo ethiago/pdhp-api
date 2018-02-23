@@ -1,7 +1,7 @@
 /**
  * Created by siroramirez on 23/05/17.
  */
-var metaDomain = require('../domain/meta');
+var metaDomain = require('../../domain/meta');
 
 exports.getMetaData = function (req, res, next) {
     

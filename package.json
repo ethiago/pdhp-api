@@ -6,7 +6,7 @@
   "repository": "https://github.com/ethiago/pdhp-api",
   "license": "Apache",
   "dependencies": {
-    "express": "^4.16.2",
+    "restify": "^6.3.4",
     "body-parser": "^1.18.2"
   },
   "scripts": {

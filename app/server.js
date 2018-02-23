@@ -5,31 +5,23 @@
  */
 'use strict';
 
-var express = require('express');
-var bodyparser = require('body-parser');
+var restify = require('restify');
 
-var db_tools = require('./tools/db_tools');
-
-var app = express();
+var pjson = require('../package.json');
+var jtool = require('./tools/json_tools.js');
 
 var port = process.env.PORT || 8000;
 
+const server = restify.createServer(jtool.extract(pjson, ["name", "version"]));
 
-db_tools.DBConnectMongoose()
-    .then(() => {
-        var routes = require('./routes/routes');
+server.use(restify.plugins.acceptParser(server.acceptable));
+server.use(restify.plugins.queryParser());
+server.use(restify.plugins.bodyParser());
 
-        // configure app to use bodyParser()
-        // this will let us get the data from a POST
-        app.use(bodyparser.urlencoded({extended: true}));
-        app.use(bodyparser.json({limit: '10mb'}));
+var routes = require('./routes/routes');
 
-        routes.assignRoutes(app);
+routes.assignRoutes(server);
 
-        app.listen(port);
-
-        console.log('Server listening on port '+ port);
-    })
-    .catch(err => {
-        console.log('Error: ' + err)
-    })
+server.listen(port, function () {
+  console.log('%s listening at %s', server.name, server.url);
+});

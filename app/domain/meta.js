@@ -1,8 +1,14 @@
 
+var pjson = require('../../package.json');
+
+var jtool = require('../tools/json_tools.js');
+
+var metaFields = ["name", "version", "description"];
 
 exports.getData = function(){
 
 	return new Promise(function(resolve, reject) {
-		resolve({ "version": "v0.1.0" });
+
+		resolve( jtool.extract(pjson, metaFields) );
 	});
 }
