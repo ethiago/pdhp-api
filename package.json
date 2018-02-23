@@ -1,0 +1,19 @@
+{
+  "name": "pdhd-api",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A starter project for nodejs",
+  "repository": "https://github.com/ethiago/pdhp-api",
+  "license": "Apache",
+  "dependencies": {
+    "express": "^4.16.2",
+    "body-parser": "^1.18.2"
+  },
+  "scripts": {
+    "start": "node app/server.js"
+  },
+  "engines": {
+    "node": "6.11.0",
+    "npm": "3.10.10"
+  }
+}
