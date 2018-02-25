@@ -6,12 +6,13 @@
   "repository": "https://github.com/ethiago/pdhp-api",
   "license": "Apache",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "restify": "^6.3.4",
-    "body-parser": "^1.18.2"
+    "underscore": "^1.8.3"
   },
   "scripts": {
     "start": "node app/server.js",
-    "test": "mocha"
+    "test": "mocha 'test/**/*.js'"
   },
   "engines": {
     "node": "6.11.0",

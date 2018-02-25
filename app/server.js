@@ -13,10 +13,12 @@ var jtool = require('./tools/json_tools.js');
 var port = process.env.PORT || 8000;
 
 const server = restify.createServer(jtool.extract(pjson, ["name", "version"]));
+server.pre(restify.pre.sanitizePath());
 
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
+
 
 server.use(
   function crossOrigin(req,res,next){
