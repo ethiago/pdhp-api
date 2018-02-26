@@ -18,3 +18,9 @@ exports.getById = function (collectionId) {
             }
         });
 }
+
+exports.search = function (q, page, per_page) {
+    
+    return collectionRepository.search(q, page, per_page);
+    
+}

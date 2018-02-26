@@ -3,6 +3,8 @@ var db = require('../tools/in_memory_db');
 
 var _ = require('underscore');
 
+var generic = require("./generic");
+
 exports.getById = function(collectionId) {
     return new Promise(function(resolve, reject) {
         console.log("Select collection " + collectionId);

@@ -18,9 +18,9 @@ exports.search = function(q, page, per_page, data) {
         
         var idexBegin = (page-1)*per_page;
         var result = {
-            total_discs: selected.length,
+            total: selected.length,
 
-            discs: selected.slice( idexBegin, idexBegin+per_page )
+            result: selected.slice( idexBegin, idexBegin+per_page )
         };
 
         resolve(result);
