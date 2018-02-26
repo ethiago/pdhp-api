@@ -1,8 +1,4 @@
-/**
- * Created by siroramirez on 23/05/17.
- *
- * Based on SPAM Server dvicente@solidear.es on 09/06/2016
- */
+
 'use strict';
 
 var restify = require('restify');

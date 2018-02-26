@@ -3,8 +3,32 @@
 var collections = [
     {
         id: 1,
-        name:"Blues Friendily",
+        name:"Blues Friendly",
         discs: [
+            {
+                id: 1,
+                name: "West Side Soul"
+            },
+            {
+                id: 2,
+                name: "Hoodoo Man Blues"
+            },
+            {
+                id: 3,
+                name: "Born Under a Bad Sign"
+            },
+            {
+                id: 4,
+                name: "Muddy Waters at Newport 1960"
+            },
+            {
+                id: 5,
+                name: "Hard Again"
+            },
+            {
+                id: 6,
+                name: "What'd I Say"
+            },
             {
                 id: 1,
                 name: "West Side Soul"

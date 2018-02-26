@@ -10,4 +10,15 @@ exports.extract = function(object, fields){
 
 	return ret;
 
+};
+
+exports.split = function(text, str){
+	var ret = [];
+	var arr = text.split(str);
+	for(var idx in arr)
+	{
+		if(arr[idx].length > 0)
+			ret.push(arr[idx]);
+	}
+	return ret;
 }

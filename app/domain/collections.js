@@ -4,7 +4,7 @@ var collectionRepository = require('../repository/collections');
 
 exports.getById = function (collectionId) {
     
-    return collectionRepository.getAllById(collectionId)
+    return collectionRepository.getById(collectionId)
         .then(function(collections){
             
             if ( collections.length === 1 ) { 
