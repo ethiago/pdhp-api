@@ -11,7 +11,6 @@ exports.search = function(q, page, per_page, data) {
 
         var selected = _.select(data, function(disc) {
             var reduced = regexps.some(item => item.test(disc.name.toLowerCase())) ;
-            console.log(reduced);
             return reduced;
        });
 
