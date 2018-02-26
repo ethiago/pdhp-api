@@ -23,8 +23,8 @@ exports.search = function (q, page, per_page, entity) {
                     entity:  entity,
                     page: page,
                     per_page: per_page,
-                    discs: {},
-                    collections: {}
+                    discs: { total: 0 },
+                    collections: { total: 0 }
                 };
 
                 if(resultArr[0])
