@@ -20,9 +20,12 @@ exports.search = function(q, page, per_page) {
 
 exports.update = function(collection){
     return new Promise(function(resolve, reject) {
-        db.collections = _.filter(db.collections, coll =>  coll.id !== collection.id );
-        db.collections.push(collection);
 
-        resolve( collection );
+        storedCollection = _(db.collections).find( rec => rec.id === collection.id);
+
+        storedCollection.name = collection.name;
+        storedCollection.discs = collection.discs;
+
+        resolve( storedCollection );
     });
 };
