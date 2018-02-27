@@ -2,6 +2,7 @@
 'use strict';
 
 var restify = require('restify');
+var corsMiddleware = require('restify-cors-middleware')
 
 var pjson = require('../package.json');
 var jtool = require('./tools/json_tools.js');
@@ -15,14 +16,15 @@ server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
 
+const cors = corsMiddleware({
+  preflightMaxAge: 5, //Optional
+  origins: ['*'],
+  allowHeaders: ['API-Token', 'X-Requested-With', 'content-type'],
+  exposeHeaders: ['API-Token-Expiry']
+})
 
-server.use(
-  function crossOrigin(req,res,next){
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    return next();
-  }
-);
+server.pre(cors.preflight)
+server.use(cors.actual)
 
 var routes = require('./routes/routes');
 

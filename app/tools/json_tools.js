@@ -21,4 +21,4 @@ exports.split = function(text, str){
 			ret.push(arr[idx]);
 	}
 	return ret;
-}
+};

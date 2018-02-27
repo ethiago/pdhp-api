@@ -9,8 +9,8 @@ exports.search = function(q, page, per_page, data) {
 
         var regexps = qs.map(item => new RegExp(item.toLowerCase()) );
 
-        var selected = _.select(data, function(disc) {
-            var reduced = regexps.some(item => item.test(disc.name.toLowerCase())) ;
+        var selected = _.select(data, function(record) {
+            var reduced = regexps.some(item => item.test(record.name.toLowerCase())) ;
             return reduced;
        });
 
