@@ -28,9 +28,9 @@ exports.search = function (q, page, per_page, entity) {
                 };
 
                 if(resultArr[0])
-                    ret.discs = { total: resultArr[0].total, result: resultArr[0].result }
+                    ret.discs = resultArr[0];
                 if(resultArr[1])
-                    ret.collections = { total: resultArr[1].total, result: resultArr[1].result }
+                    ret.collections = resultArr[1];
 
                 return ret;
             });

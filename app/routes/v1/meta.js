@@ -6,9 +6,9 @@ exports.getMetaData = function (req, res, next) {
 
 		metaDomain.getData()
 			.then(metaData => {
-					res.send(metaData);
+				res.send(metaData);
 			})
 			.catch(err => {
-				res.status(500).send(err);
+				res.send(500);
 			});
 }

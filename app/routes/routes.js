@@ -16,5 +16,5 @@ exports.assignRoutes = function (app) {
 
     app.get('/v1/search', serachV1.search);
 
-    app.get('/v1/disc/search',discV1.search);
+    app.get('/v1/disc' ,discV1.query);
 }

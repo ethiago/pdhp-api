@@ -1,17 +1,6 @@
 
 var searchDomain = require('../../domain/search');
 
-var resultMapping = function(q, page, per_page, entity, result){
-    return {
-      q: q,
-      entity:  entity,
-      page: page,
-      per_page: per_page,
-      total: result.total,
-      result: result.itens
-    }
-}
-
 var validateEntity = function(entity){
     return entity === "disc" || entity === "collection" || entity.length === 0;
 }

@@ -7,12 +7,9 @@ exports.search = function(q, page, per_page, data) {
 
         var qs = jTool.split(q," ");
 
-        var regexps = qs.map(item => new RegExp(item.toLowerCase()) );
+        var regexps = qs.map( word => new RegExp("^"+word+"| "+word, 'i'));
 
-        var selected = _.select(data, function(record) {
-            var reduced = regexps.some(item => item.test(record.name.toLowerCase())) ;
-            return reduced;
-       });
+        var selected = _.select(data, rec => regexps.some(rx => rx.test(rec.name))) ;
 
         console.log(selected.length+ " found");
         
