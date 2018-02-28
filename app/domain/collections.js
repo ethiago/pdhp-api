@@ -39,7 +39,7 @@ exports.validate = function(entity){
     if( entity.discs.length !==  _.uniq(entity.discs).length ) return false;
 
     for( var i in entity.discs){
-        if( !discDomain.validate(entity.discs[1]) ) return false;
+        if( !discDomain.validate(entity.discs[i]) ) return false;
     }
 
     return true;
