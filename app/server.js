@@ -30,6 +30,6 @@ var routes = require('./routes/v1/routes');
 
 routes.assignRoutes(server);
 
-server.listen( config.get('port') , function () {
+server.listen( config.get('server').port , function () {
   console.log('%s listening at %s', server.name, server.url);
 });
