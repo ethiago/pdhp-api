@@ -56,3 +56,14 @@ exports.update = function(req, res, next){
 	
 	next();
 }
+
+exports.create = function(req, res, next){
+	
+	discDomain.create( req.body )
+		.then(function(createdEntity){
+			res.send(createdEntity);
+		}).catch(err => { res.send(err); });
+	
+	
+	next();
+}
