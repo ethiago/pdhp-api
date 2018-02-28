@@ -37,3 +37,22 @@ exports.getById = function (req, res, next) {
 
 	next();
 }
+
+exports.update = function(req, res, next){
+	
+	var discID = Number(req.params.id);
+	var entity = req.body;
+
+	if( !Number.isInteger(discID) ) res.send(400);
+	
+	if(entity.id !== discID) res.send(400);
+
+	if( !discDomain.validate(entity) ) res.send(400);
+
+	discDomain.update( entity )
+		.then(function(updatedEntity){
+			res.send(updatedEntity);
+		}).catch(err => { res.send(err); });
+	
+	next();
+}

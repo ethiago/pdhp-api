@@ -18,17 +18,13 @@ exports.validate = function(entity){
 
 exports.getById = function (discId) {
     
-    return discsRepository.getById(discId)
-        .then(function(discs){
-            
-            if ( discs.length === 1 ) { 
-                return discs[0];
-            }else if( discs.length === 0 )
-            {
-                throw 404;
-            }else
-            {
-                throw 501;
-            }
-        });
+    return discsRepository.getById(discId);
 }
+
+exports.update = function(disc){
+
+    return discsRepository.getById(disc.id)
+        .then( d => discsRepository.update(disc)
+              ,err => { throw err }
+    )
+};

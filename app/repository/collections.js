@@ -1,14 +1,23 @@
 
 var db = require('../tools/in_memory_db');
 
-var _ = require('underscore');
+var jTool = require('../tools/json_tools');
 
 var generic = require("./generic");
+
+var discRepository = require("./discs")
 
 exports.getById = function(collectionId) {
     return new Promise(function(resolve, reject) {
         
-        var selected = _.select(db.collections, coll => coll.id === collectionId );
+        var selected = db.collections.filter(coll => coll.id === collectionId );
+
+        if(selected.length == 1)
+            resolve(selected[0]);
+        else if(selected.length == 0)
+            throw 400;
+        else
+            throw 501;
         
         resolve(selected);
     });
@@ -19,13 +28,18 @@ exports.search = function(q, page, per_page) {
 }
 
 exports.update = function(collection){
-    return new Promise(function(resolve, reject) {
-
-        storedCollection = _(db.collections).find( rec => rec.id === collection.id);
+    return this.getById(collection.id).then(function(storedCollection){
 
         storedCollection.name = collection.name;
-        storedCollection.discs = collection.discs;
 
-        resolve( storedCollection );
-    });
+        storedCollection.discs = storedCollection.discs.filter(sd => collection.discs.some( d => sd.id === d.id ))
+
+        var diff = jTool.nSetSub( collection.discs, storedCollection.discs, (a,b) => a.id == b.id )
+
+        return Promise.all(diff.map( d => discRepository.getById(d.id) )).then(l => {
+            storedCollection.discs = storedCollection.discs.concat(l);
+            return storedCollection;
+        })
+
+    })
 };

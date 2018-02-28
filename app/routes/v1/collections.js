@@ -41,7 +41,7 @@ exports.update = function(req, res, next){
 
 	if( !collectionsDomain.validate(entity) ) res.send(400);
 
-	collectionsDomain.update( req.body )
+	collectionsDomain.update( entity )
 		.then(function(updatedEntity){
 			res.send(updatedEntity);
 		}).catch(err => { res.send(err); });
