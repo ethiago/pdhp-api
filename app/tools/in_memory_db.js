@@ -66,6 +66,11 @@ var collections = [
         id: 3,
         name: "Bruno",
         discs: [ discs[9], discs[10], discs[11] ]
+    },
+    {
+        id: 4,
+        name: "Empty",
+        discs: [  ]
     }
 ];
 
