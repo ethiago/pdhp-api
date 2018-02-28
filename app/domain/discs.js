@@ -15,3 +15,20 @@ exports.validate = function(entity){
     return true;
 
 };
+
+exports.getById = function (discId) {
+    
+    return discsRepository.getById(discId)
+        .then(function(discs){
+            
+            if ( discs.length === 1 ) { 
+                return discs[0];
+            }else if( discs.length === 0 )
+            {
+                throw 404;
+            }else
+            {
+                throw 501;
+            }
+        });
+}

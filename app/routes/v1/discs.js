@@ -19,3 +19,21 @@ exports.query = function (req, res, next) {
 
 	next();
 }
+
+exports.getById = function (req, res, next) {
+
+	var discID = Number(req.params.id);
+
+	discDomain.getById(discID)
+		.then(disc => {
+			res.send(disc);
+		})
+		.catch(err => {
+			if(Number.isInteger(err)) 
+				res.send(err);
+			else
+				res.send(500, err);
+		});
+
+	next();
+}

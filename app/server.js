@@ -26,7 +26,7 @@ const cors = corsMiddleware({
 server.pre(cors.preflight)
 server.use(cors.actual)
 
-var routes = require('./routes/routes');
+var routes = require('./routes/v1/routes');
 
 routes.assignRoutes(server);
 
