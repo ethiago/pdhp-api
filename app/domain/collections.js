@@ -45,5 +45,6 @@ exports.validateCreation = function( entity ){
 }
 
 exports.create = function(entity){
+    if(!validateCreation(entity)) return false;
     return collectionRepository.create(entity);
 }

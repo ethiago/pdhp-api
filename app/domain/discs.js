@@ -28,3 +28,12 @@ exports.update = function(disc){
               ,err => { throw err }
     )
 };
+
+exports.validateCreation = function( entity ){
+    return  typeof entity.name === "string" && entity.name.length == 0
+}
+
+exports.create = function(entity){
+    if(!validateCreation(entity)) return false;
+    return discsRepository.create(entity);
+}

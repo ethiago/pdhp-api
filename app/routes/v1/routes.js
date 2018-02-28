@@ -21,4 +21,6 @@ exports.assignRoutes = function (app) {
     app.get('/v1/disc/:id' ,disc.getById);
 
     app.post('/v1/disc/:id', disc.update);
+
+    app.post('/v1/disc', disc.create);
 }

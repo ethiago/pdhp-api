@@ -29,4 +29,14 @@ exports.update = function(disc){
 
         resolve( storedDisc );
     });
-};
+}
+
+exports.create = function(entity){
+    return new Promise(function(resolve, reject) {
+
+        var id = db.discs.map(c=>c.id).reduce( (a,c) => c>a?c:a ) + 1;
+        entity.id = id;
+        db.discs.push(entity);
+        resolve(entity);
+    })
+}
