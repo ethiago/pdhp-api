@@ -1,7 +1,7 @@
 
-var db = require('../tools/in_memory_db');
+var db = require('../inMemoryDb');
 
-var jTool = require('../tools/json_tools');
+var jTool = require('../../tools/json_tools');
 
 var generic = require("./generic");
 

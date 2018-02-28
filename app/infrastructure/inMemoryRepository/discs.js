@@ -1,5 +1,5 @@
 
-var db = require('../tools/in_memory_db');
+var db = require('../inMemoryDb');
 
 var generic = require("./generic");
 

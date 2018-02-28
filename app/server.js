@@ -9,6 +9,15 @@ var jtool = require('./tools/json_tools.js');
 
 var config = require('./config.js');
 
+const dataBase = require('./infrastructure/relationalDb')
+
+dataBase.authenticate()
+if( config.get('db').create > 0 ){
+  dataBase.createDb(true).then( () => console.log("Ok") ).catch( err => console.log(err) )
+  return;
+} 
+
+
 const server = restify.createServer(jtool.extract(pjson, ["name", "version"]));
 server.pre(restify.pre.sanitizePath());
 

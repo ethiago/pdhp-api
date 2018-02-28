@@ -15,9 +15,16 @@ var config = convict({
         connectionString: {
             doc: "Database configuration to connection",
             format: '*',
-            default: 'mysql://pdhpapi:pass@localhost:3306/pdhp',
+            default: 'mysql://pdhp_api:pdhp_api_pass@localhost:3306/pdhpdb',
             env: "DATABASE_URL",
             arg: "connectionString"
+        },
+        create: {
+            doc: "createDataBase",
+            format: 'int',
+            default: 0,
+            env: "DATABASE_CREATE",
+            arg: "createDb"
         }
     }
 });

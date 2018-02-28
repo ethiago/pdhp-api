@@ -8,8 +8,12 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "convict": "^4.0.2",
+    "mysql2": "^1.5.2",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
     "restify": "^6.3.4",
     "restify-cors-middleware": "^1.1.0",
+    "sequelize": "^4.35.0",
     "underscore": "^1.8.3"
   },
   "scripts": {

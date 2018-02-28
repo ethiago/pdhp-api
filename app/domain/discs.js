@@ -1,5 +1,5 @@
 
-var discsRepository = require('../repository/discs');
+var discsRepository = require('../infrastructure/relationalRepository/discs')
 
 exports.search = function (q, page, per_page) {
     
@@ -30,10 +30,10 @@ exports.update = function(disc){
 };
 
 exports.validateCreation = function( entity ){
-    return  typeof entity.name === "string" && entity.name.length == 0
+    return  typeof entity.name === "string" && entity.name.length > 0
 }
 
 exports.create = function(entity){
-    if(!validateCreation(entity)) return false;
+    if(!this.validateCreation(entity)) throw 'Invalid Disc';
     return discsRepository.create(entity);
 }

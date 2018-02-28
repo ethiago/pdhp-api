@@ -1,6 +1,6 @@
 
-
-var collectionRepository = require('../repository/collections');
+                            //require('../infrastructure/inMemoryRepository/collections');
+var collectionRepository = require('../infrastructure/relationalRepository/collections')
 var discDomain = require('./discs');
 var _ = require('underscore');
 
@@ -41,10 +41,10 @@ exports.validate = function(entity){
 }
 
 exports.validateCreation = function( entity ){
-    return  typeof entity.name === "string" && entity.name.length == 0
+    return typeof entity.name === "string" && entity.name.length > 0
 }
 
 exports.create = function(entity){
-    if(!validateCreation(entity)) return false;
+    if(!this.validateCreation(entity)) throw 'Invalid Collection';
     return collectionRepository.create(entity);
 }
