@@ -7,7 +7,7 @@ var corsMiddleware = require('restify-cors-middleware')
 var pjson = require('../package.json');
 var jtool = require('./tools/json_tools.js');
 
-var port = process.env.PORT || 8000;
+var config = require('./config.js');
 
 const server = restify.createServer(jtool.extract(pjson, ["name", "version"]));
 server.pre(restify.pre.sanitizePath());
@@ -30,6 +30,6 @@ var routes = require('./routes/v1/routes');
 
 routes.assignRoutes(server);
 
-server.listen(port, function () {
+server.listen( config.get('port') , function () {
   console.log('%s listening at %s', server.name, server.url);
 });

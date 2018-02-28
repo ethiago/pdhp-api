@@ -7,6 +7,7 @@
   "license": "Apache",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "convict": "^4.0.2",
     "restify": "^6.3.4",
     "restify-cors-middleware": "^1.1.0",
     "underscore": "^1.8.3"
