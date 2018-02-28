@@ -42,4 +42,15 @@ exports.update = function(collection){
         })
 
     })
-};
+}
+
+exports.create = function(entity){
+    return new Promise(function(resolve, reject) {
+
+        var id = db.collections.map(c=>c.id).reduce( (a,c) => c>a?c:a ) + 1;
+        entity.id = id;
+        entity.discs = [];
+        db.collections.push(entity);
+        resolve(entity);
+    })
+}

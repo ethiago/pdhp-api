@@ -21,9 +21,9 @@ exports.getById = function (req, res, next) {
 
 exports.create = function(req, res, next){
 	
-	collectionsDomain.create( collectionID, req.body )
-		.then(function(updatedEntity){
-			res.send(collection);
+	collectionsDomain.create( req.body )
+		.then(function(createdEntity){
+			res.send(createdEntity);
 		}).catch(err => { res.send(err); });
 	
 	

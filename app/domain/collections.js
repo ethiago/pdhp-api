@@ -22,11 +22,6 @@ exports.update = function(collection){
             return collectionRepository.update(collection);
 
         },function(err) { throw err; })
-        .then(function(updatedEntity){
-
-            return updatedEntity;
-
-        },function(err) { throw err; });
 
 };
 
@@ -43,4 +38,12 @@ exports.validate = function(entity){
     }
 
     return true;
+}
+
+exports.validateCreation = function( entity ){
+    return  typeof entity.name === "string" && entity.name.length == 0
+}
+
+exports.create = function(entity){
+    return collectionRepository.create(entity);
 }
