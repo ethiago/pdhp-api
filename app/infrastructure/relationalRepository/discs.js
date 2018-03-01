@@ -4,7 +4,7 @@ const db = require('../relationalDb');
 var generic = require("./generic");
 
 exports.search = function(q, page, per_page) {
-    return [];
+    return generic.search(q, page, per_page, db.Disc );
 }
 
 exports.getById = function(discId) {

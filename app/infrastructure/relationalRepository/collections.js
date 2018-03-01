@@ -11,7 +11,7 @@ exports.getById = function(collectionId) {
 }
 
 exports.search = function(q, page, per_page) {
-    return []
+    return generic.search(q, page, per_page, db.Collection );
 }
 
 exports.removeDiscsFrom = function( collectionEntity, listOfDiscIdsToRemove, opt){
