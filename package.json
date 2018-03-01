@@ -1,7 +1,7 @@
 {
   "name": "pdhd-api",
   "private": true,
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "A starter project for nodejs",
   "repository": "https://github.com/ethiago/pdhp-api",
   "license": "Apache",
